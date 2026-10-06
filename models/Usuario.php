@@ -13,6 +13,6 @@ class Usuario{
     }
     public function getNombre(){
         return $this->nombre;
-    }
+    }  
 }
 ?>

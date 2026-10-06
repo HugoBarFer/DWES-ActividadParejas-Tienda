@@ -11,6 +11,18 @@ class Producto{
         $this->precio=$precio;
         $this->stock=$sotck;
     }
+    public function getId(){
+        return $this->id;
+    }
+    public function getNombre(){
+        return $this->nombre;
+    }
+    public function getPrecio(){
+        return $this->precio;
+    }
+    public function getStock(){
+        return $this->stock;
+    }
 }
 
 ?>
