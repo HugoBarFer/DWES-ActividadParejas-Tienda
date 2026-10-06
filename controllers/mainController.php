@@ -1,9 +1,8 @@
 <?php
 require_once("models/Usuario.php");
-require_once("models/UserRepository.php");
 require_once("models/Producto.php");
 require_once("models/Orders.php");
-require_once("models/OrdersItems.php");
+require_once("models/OrderItems.php");
 
 session_start();
 $info = "";
