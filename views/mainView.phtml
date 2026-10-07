@@ -1,27 +1,44 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Tienda</title>
 </head>
 <body>
-    TIENDA
+    <h1>TIENDA</h1>
 
-    <br><br>
     <?php
-
     if(isset($_SESSION['user'])){
-        echo "hola ".$_SESSION['user']->getUsername(). "<a href='index.php?c=product&new'>Subir producto</a> <a href='index.php?c=user&logout'>salir</a>";
+        echo "hola ".$_SESSION['user']->getUsername(). " <a href='index.php?c=product&new'>Subir producto</a> <a href='index.php?c=user&logout'>salir</a>";
     }
     else {
-            <a href="index.php?login">Entrar</a> <a href="index.php?register">Registrate</a>
+        ?>
+        <a href="index.php?login">Entrar</a> <a href="index.php?register">Registrate</a>
+        <?php
     }
     ?>
 
+    <br><br>
+    <h2>Productos</h2>
 
     <?php
-    
+    $productos = ProductRepository::getAll();
+
+    if(!empty($productos)){
+        foreach($productos as $producto){
+            ?>
+            <div>
+                <h3><?php echo $producto->getName(); ?></h3>
+                <p>Precio: <?php echo $producto->getPrice(); ?> €</p>
+                <p>Stock: <?php echo $producto->getStock(); ?></p>
+            </div>
+            <hr>
+            <?php
+        }
+    } else {
+        echo "<p>No hay productos disponibles.</p>";
+    }
     ?>
 </body>
 </html>
