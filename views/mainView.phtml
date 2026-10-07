@@ -6,47 +6,22 @@
     <title>Document</title>
 </head>
 <body>
-<?php
-if(isset($_SESSION['user'])){
+    TIENDA
 
-    echo "hola ".$_SESSION['user']->getNombre().". <a href='index.php?logout'>logout</a>";
+    <br><br>
+    <?php
 
+    if(isset($_SESSION['user'])){
+        echo "hola ".$_SESSION['user']->getUsername(). "<a href='index.php?c=product&new'>Subir producto</a> <a href='index.php?c=user&logout'>salir</a>";
+    }
+    else {
+            <a href="index.php?login">Entrar</a> <a href="index.php?register">Registrate</a>
+    }
     ?>
 
-    <h1>Nuevo Post</h1> 
-    <form action="index.php?newpost" method="post">
-        <input type="text" name="title" placeholder="titulo"><br>
-        <textarea name="content" placeholder="Escribe aqui lo que quieras..." rows="3" cols="50"></textarea><br>
-        <input type="submit" value="enviar">
-    </form>
 
-<?php
-}
-else {
-?>
-    <form action="index.php?register" method="post">
-        <input type="text" name="username" placeholder="nombre de usuario registro">
-        <input type="password" name="password" placeholder="contraseña">
-        <input type="submit" value="enviar">
-    </form>
-
-
-    <form action="index.php?login" method="post">
-        <input type="text" name="username" placeholder="nombre de usuario">
-        <input type="password" name="password" placeholder="contraseña">
-        <input type="submit" value="enviar">
-    </form>
-
-    <?php } ?>
-
-
-    <h2>productos</h2>
-<?php foreach($productos as $producto) { ?>
-    <div>
-        <h3><?php echo $post->getProductoId(); ?></h3>
-        <p><?php echo $post->getContent(); ?></p>
-    </div>
-
-<?php } ?>
+    <?php
+    
+    ?>
 </body>
 </html>
